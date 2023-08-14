@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+from wolwolf import *
+
+if __name__ == "__main__":
+    config = Config()
+    logger = Logger(config)
+    
+    if config.args.daemon:
+        ws = WolwolfServer(config, logger)
+        ws.run()
+    else:
+        wc = WolwolfClient(config, logger)
+        wc.run()
